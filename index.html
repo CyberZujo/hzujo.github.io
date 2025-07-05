@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haris Žujo</title>
+  <link href="dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+<style>
+    <style>
+  #typing::after {
+    content: "|";
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <header class="relative w-full h-[40vh] bg-[#0c1b24] flex flex-col items-center justify-end overflow-hidden">
+    <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#00ff55" fill-opacity="0.35"
+        d="M0,96L48,106.7C96,117,192,139,288,160C384,181,480,203,576,213.3C672,224,768,224,864,197.3C960,171,1056,117,1152,90.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" />
+    </svg>
+
+    <div class="relative z-10 -mb-16">
+      <img src="images/hzdev.png" alt="Avatar"
+        class="rounded-full object-cover mx-auto shadow-xl">
+      
+
+    </div>
+  </header>
+
+  <main class="text-center px-6 py-10 max-w-3xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-2">Haris Žujo</h1>
+    <div id="typing" class="text-xl text-gray-600 font-mono h-6 mb-4"></div>
+    <div class="flex justify-center gap-6 mb-6 text-black-700 text-3xl">
+      <a href="https://github.com/CyberZujo" class="hover:text-black">
+        <i class="fab fa-github transform transition-transform duration-200 hover:scale-125"></i>
+
+    </a>
+      <a href="https://www.linkedin.com/in/haris-%C5%BEujo" class="hover:underline">
+         <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://haris-zujo.medium.com/" class="hover:underline">
+         <i class="fab fa-medium"></i>
+    </a>
+    </div>
+
+    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+      I’m a Java backend engineer with 6+ years in fintech, building robust systems using Spring Boot, SQL, Docker, and Kubernetes. I love designing scalable distributed systems and writing clean, maintainable code.
+    </p>
+
+
+    <a href="mailto:haris.zujo11@gmail.com" class="text-blue-500 underline">
+        <i class="fa-solid fa-envelope"></i>
+      haris.zujo11@gmail.com
+    </a>
+  </main>
+</body>
+<script>
+  const text = [
+    "Spring Boot Enthusiast 🌱",
+    "Clean Code Advocate ✨",
+    "Senior Backend Engineer 💻",
+  ];
+
+  let i = 0, j = 0;
+  let currentText = "", isDeleting = false;
+
+  function type() {
+    const target = document.getElementById("typing");
+    if (!target) return;
+
+    if (!isDeleting && j <= text[i].length) {
+      currentText = text[i].substring(0, j++);
+    } else if (isDeleting && j >= 0) {
+      currentText = text[i].substring(0, j--);
+    }
+
+    target.innerHTML = currentText;
+
+    if (j === text[i].length + 1 && !isDeleting) {
+      isDeleting = true;
+      setTimeout(type, 1000); // pause at full text
+      return;
+    } else if (j === 0 && isDeleting) {
+      isDeleting = false;
+      i = (i + 1) % text.length;
+    }
+
+    setTimeout(type, isDeleting ? 40 : 90);
+  }
+
+  window.onload = type;
+</script>
+
+</html>
